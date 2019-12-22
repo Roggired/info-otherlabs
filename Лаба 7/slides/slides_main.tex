@@ -1,0 +1,152 @@
+\documentclass[aspectratio=169]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[english,russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage{setspace}
+\usefonttheme{serif}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+\pgfdeclareimage[height=1cm]{university-logo}{images/logo.PNG}
+\logo{\pgfuseimage{university-logo}}
+
+\begin{document}
+
+\begin{frame}{Определение термина <<Информатика>>}
+	\textbf{\textcolor{blue}{Информатика}} "--- дисциплина, изучающая свойства и~структуру информации, закономерности ее~создания, преобразования, накопления, передачи и использования.
+	
+	\vspace{0.5cm}
+
+	\textbf{\textcolor{blue}{Англ:}} informatics~=~information~technology~+ computer~science~+ information~theory
+
+	\begin{center}
+		\textbf{Важные даты}
+	\end{center}
+
+	\begin{itemize}
+		\item 1956 "--- появление термина <<Информатика>> (нем. Informatik, Штейбух)
+		\item 1968 "--- первое упоминание в СССР (информология, Харкевич)
+		\item 197Х "--- информатика стала отдельной наукой
+		\item 4 декабря "--- день российской информатики
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Терминология: информация и данные}
+	Международный стандарт ISO/IEC~2382:2015
+	
+	<<Information technology - Vocabulary>> (вольный пересказ):
+
+		\vspace{0.3cm}
+
+		\quad\quad\textbf{\textcolor{blue}{Информация}} "--- знания относительно фактов, событий, вещей, идей 
+
+		\quad\quadи~понятий.
+		
+		\vspace{0.3cm}
+
+		\quad\quad\textbf{\textcolor{blue}{Данные}} "--- форма представления информации в виде, пригодном 
+
+		\quad\quadдля~передачи или~обработки.
+
+	\vspace{0.5cm}
+
+	\begin{itemize}
+		\item Что есть предмет информатики: информация или данные?
+		\item 
+			Как измерить информацию? Как измерить данные?
+			
+			Пример: <<Байкал - самое глубокое озеро Земли>>.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Измерение количества информации}
+	\textbf{\textcolor{blue}{Количество информации $\equiv$ информационная энтропия "--- }}это численная мера непредсказуемости информации.
+	Количество информации в~некотором объекте определяется непредсказуемостью состояния, в~котором находится этот~объект.
+
+	\vspace{0.4cm}
+
+	Пусть~$i (s)$ "--- функция для~измерения количеств информации в~объекте $s$, состоящем из~$n$
+	независимых частей $s_k$, где~$k$ изменяется от~$1$~до~$n$. Тогда \textbf{\textcolor{blue}{свойства меры количества информации}}
+	\textbf{i(s)} таковы:
+
+	\begin{itemize}
+		\item Неотрицательность: $i(s) \ge 0$.
+		\item Принцип предопределённости: если об объекте уже все известно, то $i(s) = 0$.
+		\item Аддитивность: $i(s) = \sum i(s_k)$ по всем $k$.
+		\item Монотонность: $i(s)$ монотонна при монотонном изменении 
+		
+		вероятностей.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Пример применения меры Хартли на практике}
+	\textbf{Пример 1.}Ведущий загадывает число от~1~до~64. Какое количество вопросов типа <<да-нет>> понадобится, чтобы~гарантировано угадать число?
+	\begin{itemize}
+		\item \underline{Первый} вопрос:<<Загаданное число меньше~32?>>. Ответ:~<<Да>>.
+		\item \underline{Второй} вопрос:<<Загаданное число меньше~16?>>. Ответ:~<<Нет>>.
+		\item \dots
+		\item \underline{Шестой} вопрос (в~худшем случае) точно приведёт к~верному ответу.
+		\item Значит, в~соответствии с~мерой Хартли в~загадке ведущего содержится ровно
+		$\log_2 64 = 6$ бит непредсказуемости (т.е. информации).
+	\end{itemize}
+
+	\vspace{0.5cm}
+
+	\textbf{Пример 2.} Ведущий держит за~спиной ферзя и~собирается поставить его~напроизвольную клетку доски. Насколько непредсказуемо его~решение?
+	\begin{itemize}
+		\item Всего на доске $8\times8$ клеток, а~цвет ферзя может~быть белым 
+
+		или~чёрным, т. е.~всего возможно $8\times8\times2 = 128$ равновероятных состояний. 
+		\item Значит, количество информации по~Хартли равно $\log_2 128 = 7$ бит
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Анализ свойств меры Хартли}
+	Экспериментатор одновременно подбрасывает монету~(М) и~кидает игральную кость~(К).Какое количество информации содержится в~эксперименте~(Э)?
+
+	\vspace{0.5cm}
+
+	\textbf{\textcolor{blue}{Аддитивность:}}
+
+		\quad$i($Э$) = i($М$) + i($К$) \Rightarrow i(12$~исходов$) = i (2$~исхода$) + i (6$~исходов$): $
+
+		\quad$\log_x 12=\log_x 2+\log_x 6$
+
+	\vspace{0.3cm}
+
+	\textbf{\textcolor{blue}{Неотрицательность:}}
+
+		\quadФункция $\log_x N$ неотрицательна при любом $x > 1$ и $N \ge 1$
+
+	\vspace{0.3cm}
+
+	\textbf{\textcolor{blue}{Монотонность:}}
+
+		\quadС увеличением $p($М$)$ или $p($К$)$ функция $i($Э$)$ монотонно возрастает.
+
+	\vspace{0.3cm}
+
+	\textbf{\textcolor{blue}{Принцип предопределённости:}}
+
+		\quadПри наличии всегда только одного исхода 
+
+		\quad(монета и~кость с~магнитом) количество информации равно нулю:
+
+		\quad$\log_x 1 + \log_x 1 = 0$. 
+\end{frame}
+
+\end{document}
+
+
